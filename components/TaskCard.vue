@@ -4,7 +4,7 @@
       <v-card-text>
         <div class="d-flex justify-space-between align-center">
           <p class="text-subtitle-1 font-weight-bold text-h6">
-            {{ task?.title }}
+            {{ task.title }}
           </p>
           <v-btn
             icon="mdi-pencil"
@@ -15,7 +15,7 @@
           </v-btn>
         </div>
         <p class="my-2">
-          {{ task.info }}
+          {{ `${task.info.length > 80  ? task.info.substring(0,80) + '...' : task.info}` }}
         </p>
 
         <v-chip
@@ -33,12 +33,14 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import type { PropType } from 'vue';
+import type { TaskList } from '@/type';
 
     export default defineComponent ({
       name: "TaskCard",
       props: {
         task: {
-          type: Object,
+          type: Object as PropType<TaskList>,
           required: true
         },
       },

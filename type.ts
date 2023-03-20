@@ -3,7 +3,7 @@ export type TaskList = {
   title: string;
   info: string;
   status: string;
-  time: number;
+  date: string;
   bgColor: string;
 };
 
