@@ -9,7 +9,7 @@
           <v-btn
             icon="mdi-pencil"
             size="x-small"
-            @click="$emit('toggleDrawer', task.id)"
+            @click="editTask"
           >
             <v-icon fab></v-icon>
           </v-btn>
@@ -72,5 +72,10 @@ import type { TaskList } from '@/type';
           }
         },
       },
+      methods : {
+        editTask(){
+          
+        }
+      }
     });
 </script>

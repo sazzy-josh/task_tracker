@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default {
   ssr: false,
-  buildModules: ["@nuxt/typescript-build", "@nuxtjs/date-fns", "@pinia/nuxt"],
+  buildModules: ["@nuxt/typescript-build", "@nuxtjs/date-fns"],
 
   css: [
     "vuetify/lib/styles/main.sass",

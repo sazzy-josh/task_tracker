@@ -1,68 +1,44 @@
 {
-    "task": [
-      {
-        "id": 1,
-        "title": "Hope dey give me hope",
-        "info": "lorem ipsum budy asa ipsum vim asj jur dkd dh fhdihd dfhihd",
-        "status": "completed",
-        "Date": "15th Feb 2023",
-        "bgColor": "red"
-      },
-      {
-        "id": 2,
-        "title": "Learning Vue and Nuxt",
-        "info": "lorem ipsum budy asa ipsum vim asj jur dkd dh fhdihd dfhihd",
-        "status": "completed",
-        "Date": "12th Jan 2023",
-        "bgColor": "green"
-      },
-      {
-        "id": 3,
-        "title": "Nuxt Got nothing on me",
-        "info": "lorem ipsum budy asa ipsum vim asj jur dkd dh fhdihd dfhihd",
-        "status": "ongoing",
-        "Date": "24th Dec 2022",
-        "bgColor": "blue"
-      },
-      {
-        "id": 4,
-        "title": "Osheey let's Go!",
-        "info": "lorem ipsum budy asa ipsum vim asj jur dkd dh fhdihd dfhihd",
-        "status": "backlog",
-        "Date": "12th Dec 2022",
-        "bgColor": "yellow"
-      },
-      {
-        "id": 5,
-        "title": "Learning Vue and Nuxt",
-        "info": "lorem ipsum budy asa ipsum vim asj jur dkd dh fhdihd dfhihd",
-        "status": "completed",
-        "Date": "12th Jan 2023",
-        "bgColor": "green"
-      },
-      {
-        "id": 6,
-        "title": "Nuxt Got nothing on me",
-        "info": "lorem ipsum budy asa ipsum vim asj jur dkd dh fhdihd dfhihd",
-        "status": "ongoing",
-        "Date": "24th Dec 2022",
-        "bgColor": "blue"
-      },
-      {
-          "id": 7,
-          "title": "Learning Vue and Nuxt",
-          "info": "lorem ipsum budy asa ipsum vim asj jur dkd dh fhdihd dfhihd",
-          "status": "completed",
-          "Date": "12th Jan 2023",
-          "bgColor": "green"
-        },
-        {
-          "id": 8,
-          "title": "Nuxt Got nothing on me",
-          "info": "lorem ipsum budy asa ipsum vim asj jur dkd dh fhdihd dfhihd",
-          "status": "ongoing",
-          "Date": "24th Dec 2022",
-          "bgColor": "blue"
-        }
-    ]
+  "task": [
+    {
+      "id": "f6f28204-07db-49a7-9952-2ab532de2b78",
+      "title": "Home is sweet ohh ",
+      "info": "Come lets enjoyyy and have fun",
+      "status": "backlog",
+      "bgColor": "yellow",
+      "Date": 1679390512806
+    },
+    {
+      "id": "14c1b132-e785-432d-b46b-a5e176a1ca3d",
+      "title": "Hi guys,we moving",
+      "info": "Welcome back brother",
+      "status": "backlog",
+      "bgColor": "green",
+      "Date": 1679390538704
+    },
+    {
+      "id": "a9932028-a1f9-4ce9-afc3-99e7d734c18a",
+      "title": "lets get this lit",
+      "info": "🥲 i see shege my bro",
+      "status": "backlog",
+      "bgColor": "red",
+      "Date": 1679393961821
+    },
+    {
+      "id": "f3cfcc3c-0333-4065-9f2a-336c67bcfcab",
+      "title": "EYES DEY RED OOH BRO",
+      "info": "But we move shaaa..Nothing spoil ",
+      "status": "completed",
+      "bgColor": "yellow",
+      "Date": 1679393996219
+    },
+    {
+      "id": "4532df78-7e34-44a0-b1cc-f505effaa24f",
+      "title": "ok",
+      "info": "ok",
+      "status": "ongoing",
+      "bgColor": "green",
+      "Date": 1679396295245
+    }
+  ]
 }

@@ -1,10 +1,10 @@
 export type TaskList = {
-  id: number;
+  id?: number;
   title: string;
   info: string;
-  status: string;
-  date: string;
-  bgColor: string;
+  Date: string | number;
+  status: "ongoing" | "backlog" | "completed";
+  bgColor: "red" | "green" | "blue" | "yellow";
 };
 
 export type NavItems = {
