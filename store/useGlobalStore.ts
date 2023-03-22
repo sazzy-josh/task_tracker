@@ -3,7 +3,7 @@ import {TaskList} from "@/type";
 import axios from "axios";
 
 type globalStoreShape = {
-  addTaskDialog: Boolean;
+  addTaskDialog: any;
   editTaskDialog: Boolean;
   taskList: TaskList[];
 };
@@ -42,3 +42,6 @@ export const useGlobalStore = defineStore("global", {
     },
   },
 });
+
+
+

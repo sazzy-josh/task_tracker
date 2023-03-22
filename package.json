@@ -1,4 +1,6 @@
 {
+  "name": "tasktracker",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "build": "nuxt build",
@@ -17,7 +19,6 @@
     "date-fns": "^2.29.3",
     "pinia": "^2.0.33",
     "sass": "^1.58.3",
-    "uuid": "^9.0.0",
     "vuetify": "^3.1.4"
   }
 }

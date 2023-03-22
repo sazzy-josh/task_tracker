@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default {
   ssr: false,
-  buildModules: ["@nuxt/typescript-build", "@nuxtjs/date-fns"],
+  buildModules: ["@nuxt/typescript-build",  "@pinia/nuxt"],
 
   css: [
     "vuetify/lib/styles/main.sass",
@@ -10,8 +10,6 @@ export default {
   ],
 
   plugins: ["~/plugins/vuetify", "~/plugins/pinia"],
-
-  
 
   //Allows Global Import of component
   component: {
