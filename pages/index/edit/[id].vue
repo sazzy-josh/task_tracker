@@ -47,6 +47,7 @@
             variant="plain"
             :loading="isDeleteLoading"
             class="font-weight-bold mb-2 text-red-darken-2 text-right"
+            @click="deleteTask"
           >
             Remove Task
           </v-btn>
@@ -63,6 +64,7 @@
   import {defineComponent} from "vue";
   import {mapState, mapActions} from "pinia";
   import {useGlobalStore} from "@/store/useGlobalStore";
+  import axios from "axios";
   import {TaskList} from "@/type";
 
   export default defineComponent({
@@ -87,7 +89,7 @@
       ...mapState(useGlobalStore, ["editTaskDialog"]),
     },
     methods: {
-      ...mapActions(useGlobalStore, ["getTaskById", "editTask"]),
+      ...mapActions(useGlobalStore, ["getTaskById", "editTask", "getAllTask"]),
       submitEditForm() {
         const form = this.$refs.form as HTMLInputElement;
         const payload = {
@@ -99,15 +101,27 @@
           Date: this.formData.date,
         } as TaskList;
         if (!form.checkValidity()) {
-            this.isAddLoading = false;
-            return
+          this.isAddLoading = false;
+          return;
         }
-        if(this.formData.title.length > 30){
-             this.isAddLoading = false;
-          return
+        if (this.formData.title.length > 30) {
+          this.isAddLoading = false;
+          return;
         }
         this.editTask(payload);
         this.$router.push("/");
+      },
+
+      async deleteTask() {
+        this.isDeleteLoading = true;
+        await axios.delete(
+          `http://localhost:4000/task/${this.$route.params.id}`,
+        );
+        setTimeout(() => {
+          this.isDeleteLoading = false;
+          this.getAllTask();
+          this.$router.push("/");
+        }, 1000);
       },
     },
     async created() {

@@ -1,34 +1,32 @@
 <template>
   <v-col cols="12" sm="6" md="4">
-    <v-card :class="getBgColor" class="rounded-xl" height="150">
-      <v-card-text class="d-flex flex-column justify-space-between">
-        <div class="d-flex justify-space-between align-center">
-          <p class="text-subtitle-1 font-weight-bold text-h6">
-            {{ task.title }}
-          </p>
-          <v-btn icon="mdi-pencil" size="x-small" @click="editTask">
-            <v-icon fab></v-icon>
-          </v-btn>
-        </div>
-        <p class="my-2">
-          {{
-            `${
-              task.info.length > 80
-                ? task.info.substring(0, 80) + "..."
-                : task.info
-            }`
-          }}
+    <v-sheet :class="getBgColor" class="rounded-xl py-2 px-3" height="150">
+      <div class="d-flex justify-space-between align-center">
+        <p class="text-subtitle-1 font-weight-bold text-h6">
+          {{ task.title }}
         </p>
+        <v-btn icon="mdi-pencil" size="x-small" @click="editTask">
+          <v-icon fab></v-icon>
+        </v-btn>
+      </div>
+      <p class="my-2">
+        {{
+          `${
+            task.info.length > 80
+              ? task.info.substring(0, 80) + "..."
+              : task.info
+          }`
+        }}
+      </p>
 
-        <div class="d-flex justify-space-between align-center">
-          <v-chip :class="getStatusColor" size="small" text-color="white">
-            {{ task.status }}
-          </v-chip>
+      <div class="d-flex justify-space-between align-center">
+        <v-chip :class="getStatusColor" size="small" text-color="white">
+          {{ task.status }}
+        </v-chip>
 
-          <p>30mins ago</p>
-        </div>
-      </v-card-text>
-    </v-card>
+        <p>30mins ago</p>
+      </div>
+    </v-sheet>
   </v-col>
 </template>
 

@@ -1,6 +1,6 @@
 import {defineStore} from "pinia";
 import axios from "axios";
-import { TaskList } from "../type";
+import {TaskList} from "../type";
 
 type globalStoreShape = {
   addTaskDialog: any;
@@ -44,15 +44,20 @@ export const useGlobalStore = defineStore("global", {
       this.getAllTask();
     },
   },
+  
   getters: {
     getAllBacklogs(): number {
-      return this.taskList.filter((task) => task.status === "backlog").length;
+      return this.taskList.filter((task: TaskList) => task.status === "backlog")
+        .length;
     },
     getAllCompleted(): number {
-      return this.taskList.filter((task) => task.status === "completed").length;
+      return this.taskList.filter(
+        (task: TaskList) => task.status === "completed",
+      ).length;
     },
     getAllOngoing(): number {
-      return this.taskList.filter((task) => task.status === "ongoing").length;
+      return this.taskList.filter((task: TaskList) => task.status === "ongoing")
+        .length;
     },
   },
 });
