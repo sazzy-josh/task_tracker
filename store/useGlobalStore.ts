@@ -1,6 +1,6 @@
 import {defineStore} from "pinia";
-import {TaskList} from "@/type";
 import axios from "axios";
+import { TaskList } from "../type";
 
 type globalStoreShape = {
   addTaskDialog: any;

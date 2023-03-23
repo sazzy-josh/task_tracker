@@ -99,9 +99,12 @@
           Date: this.formData.date,
         } as TaskList;
         if (!form.checkValidity()) {
-          if(this.formData.title.length < 30){    
-            return;
-          }
+            this.isAddLoading = false;
+            return
+        }
+        if(this.formData.title.length > 30){
+             this.isAddLoading = false;
+          return
         }
         this.editTask(payload);
         this.$router.push("/");

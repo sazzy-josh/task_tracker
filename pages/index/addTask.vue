@@ -46,7 +46,6 @@
           type="submit"
           block
           :loading="isLoading"
-          :disabled="form"
         >
           Add Task</v-btn
         >
@@ -104,6 +103,10 @@
         if (!form.checkValidity()) {
           this.isLoading = false;
           return;
+        }
+        if(this.formData.title.length > 30){
+             this.isLoading = false;
+          return
         }
         await this.addTask(payload);
         setTimeout(() => {
