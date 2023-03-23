@@ -18,14 +18,18 @@
           {{ `${task.info.length > 80  ? task.info.substring(0,80) + '...' : task.info}` }}
         </p>
 
-        <v-chip
+        <div class="d-flex justify-space-between align-center mt-4">
+          <v-chip
           :class="getStatusColor"
-          class="mt-4"
+         
           size="small"
           text-color="white"
         >
           {{ task.status }}
         </v-chip>
+
+        <p>30mins ago</p>
+        </div>
       </v-card-text>
     </v-card>
   </v-col>
@@ -74,7 +78,7 @@ import type { TaskList } from '@/type';
       },
       methods : {
         editTask(){
-          
+          this.$router.push(`/edit/${this.task.id}`)
         }
       }
     });

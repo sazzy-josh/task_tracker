@@ -47,8 +47,8 @@
         <div v-if="taskList.length">
           <v-row>
             <TaskCard
-              v-for="(task, n) in getLimitedTask"
-              :key="n"
+              v-for="(task, idx) in getLimitedTask"
+              :key="idx"
               :task="task"
             />
           </v-row>
@@ -78,6 +78,7 @@
 </template>
 
 <script lang="ts">
+  import {formatDistanceToNow} from "date-fns";
   import TaskCard from "../components/TaskCard.vue";
   import {defineComponent} from "vue";
   import {mapState, mapActions} from "pinia";
@@ -87,11 +88,6 @@
     name: "Home",
     components: {
       TaskCard,
-    },
-    data() {
-      return {
-      
-      };
     },
     computed: {
       ...mapState(useGlobalStore, [
@@ -110,9 +106,13 @@
       goToAddTask() {
         this.$router.push("addTask");
       },
+      formatTime() {
+      return formatDistanceToNow(Date.now(), { addSuffix: true });
+    },
     },
     created() {
       this.getAllTask();
+      this.formatTime()
     },
   });
 </script>

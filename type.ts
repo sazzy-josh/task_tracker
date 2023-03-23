@@ -1,5 +1,5 @@
-export type TaskList = {
-  id?: number;
+export interface TaskList {
+  id?: string;
   title: string;
   info: string;
   Date: string | number;

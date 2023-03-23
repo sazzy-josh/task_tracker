@@ -1,8 +1,8 @@
 <template>
-  <v-dialog v-model="addTaskDialog" width="600">
+  <v-dialog v-model="editTaskDialog" width="600">
     <v-card class="pa-4 pa-md-8">
-      <h2 class="my-2 text-center">Add Task</h2>
-      <v-form ref="form" @submit.prevent="submitForm">
+      <h2 class="my-2 text-center">Edit Task</h2>
+      <v-form ref="form" @submit.prevent="submitEditForm">
         <v-text-field
           label="Title"
           placeholder="Enter your Title"
@@ -12,7 +12,7 @@
             (v) =>
               (v && v.length <= 30) || 'Title must be less than 30 characters',
           ]"
-          counter="30"
+          :counter="30"
           required
         >
         </v-text-field>
@@ -41,14 +41,18 @@
           required
         ></v-select>
 
-        <v-btn
-          color="success"
-          type="submit"
-          block
-          :loading="isLoading"
-          :disabled="form"
-        >
-          Add Task</v-btn
+        <div class="w-100 d-flex justify-end">
+          <v-btn
+            right
+            variant="plain"
+            :loading="isDeleteLoading"
+            class="font-weight-bold mb-2 text-red-darken-2 text-right"
+          >
+            Remove Task
+          </v-btn>
+        </div>
+        <v-btn color="success" type="submit" block :loading="isAddLoading">
+          Edit Task</v-btn
         >
       </v-form>
     </v-card>
@@ -56,63 +60,57 @@
 </template>
 
 <script lang="ts">
-  import {v4 as uuidv4} from "uuid";
   import {defineComponent} from "vue";
   import {mapState, mapActions} from "pinia";
   import {useGlobalStore} from "@/store/useGlobalStore";
   import {TaskList} from "@/type";
 
   export default defineComponent({
-    name: "addTask",
+    name: "editTask",
     data() {
       return {
-        isLoading: false,
         statusSelect: ["ongoing", "backlog", "completed"],
         bgColorSelect: ["red", "green", "blue", "yellow"],
+        isAddLoading: false,
+        isDeleteLoading: false,
         formData: {
+          id: "",
           title: "",
           info: "",
-          status: "ongoing",
-          bgColor: "red",
-          Date: Date.now(),
-        } as TaskList,
+          status: "",
+          date: "",
+          bgColor: "",
+        },
       };
     },
-
     computed: {
-      ...mapState(useGlobalStore, ["addTaskDialog", "taskList"]),
+      ...mapState(useGlobalStore, ["editTaskDialog"]),
     },
-
     methods: {
-      ...mapActions(useGlobalStore, ["getAllTask", "addTask"]),
-
-      goHome() {
-        this.$router.push("/");
-      },
-
-      async submitForm(): Promise<void> {
-        this.isLoading = true;
+      ...mapActions(useGlobalStore, ["getTaskById", "editTask"]),
+      submitEditForm() {
+        const form = this.$refs.form as HTMLInputElement;
         const payload = {
-          id: uuidv4(),
+          id: this.formData.id,
           title: this.formData.title,
           info: this.formData.info,
           status: this.formData.status,
           bgColor: this.formData.bgColor,
-          Date: Date.now(),
+          Date: this.formData.date,
         } as TaskList;
-        const form = this.$refs.form as HTMLFormElement;
         if (!form.checkValidity()) {
-          this.isLoading = false;
-          return;
+          if(this.formData.title.length < 30){    
+            return;
+          }
         }
-        await this.addTask(payload);
-        setTimeout(() => {
-          this.isLoading = false;
-          this.getAllTask();
-          this.goHome();
-          form.reset();
-        }, 500);
+        this.editTask(payload);
+        this.$router.push("/");
       },
+    },
+    async created() {
+      const data = await this.getTaskById(this.$route.params.id as string);
+      this.formData = data;
+      // console.log(JSON.stringify(data, null, 2));
     },
   });
 </script>
