@@ -25,6 +25,7 @@ export const useGlobalStore = defineStore("global", {
       try {
         await axios.post("http://localhost:4000/task", payload);
         this.getAllTask();
+        this.addTaskDialog = false
       } catch (error) {
         console.log(error);
       }

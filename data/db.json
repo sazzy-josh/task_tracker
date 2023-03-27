@@ -5,16 +5,16 @@
       "title": "We can do this guys",
       "info": "Let's kick some ass motherfuckers",
       "status": "ongoing",
-      "bgColor": "red",
+      "bgColor": "green",
       "Date": "2023-03-26T15:04:23.912Z"
     },
     {
-      "id": "c90d2c35-066d-454f-ba6b-7872256bad0a",
-      "title": "Hey guys,I love Nuxt",
-      "info": "Can we do more of this please",
-      "status": "ongoing",
-      "bgColor": "yellow",
-      "Date": "2023-03-26T15:05:03.628Z"
+      "id": "f80add55-fdf2-45fd-82d1-f12bad57a63a",
+      "title": "he df fdf",
+      "info": "dfdfndfg dgdgdd gdgdjggd gdg",
+      "status": "completed",
+      "bgColor": "red",
+      "Date": "2023-03-27T13:18:56.622Z"
     }
   ]
 }
