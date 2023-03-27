@@ -41,12 +41,7 @@
           required
         ></v-select>
 
-        <v-btn
-          color="success"
-          type="submit"
-          block
-          :loading="isLoading"
-        >
+        <v-btn color="success" type="submit" block :loading="isLoading">
           Add Task</v-btn
         >
       </v-form>
@@ -73,7 +68,7 @@
           info: "",
           status: "ongoing",
           bgColor: "red",
-          Date: Date.now(),
+          Date: "",
         } as TaskList,
       };
     },
@@ -97,16 +92,16 @@
           info: this.formData.info,
           status: this.formData.status,
           bgColor: this.formData.bgColor,
-          Date: Date.now(),
+          Date: new Date().toISOString(),
         } as TaskList;
         const form = this.$refs.form as HTMLFormElement;
         if (!form.checkValidity()) {
           this.isLoading = false;
           return;
         }
-        if(this.formData.title.length > 30){
-             this.isLoading = false;
-          return
+        if (this.formData.title.length > 30) {
+          this.isLoading = false;
+          return;
         }
         await this.addTask(payload);
         setTimeout(() => {
@@ -115,7 +110,13 @@
           this.goHome();
           form.reset();
         }, 500);
+        // console.log(payload.Date);
+        this.$snackbar.add({
+          type: "success",
+          text: "Successfully added task",
+        });
       },
     },
+    
   });
 </script>

@@ -1,7 +1,15 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-export default {
+export default defineNuxtConfig({
   ssr: false,
-  buildModules: ["@nuxt/typescript-build",  "@pinia/nuxt"],
+  buildModules: ["@nuxt/typescript-build", "@pinia/nuxt"],
+  
+  modules: ['nuxt-snackbar'],
+  
+  snackbar: {
+    // right: true,
+    bottom: true,
+    duration: 1000,
+  },
 
   css: [
     "vuetify/lib/styles/main.sass",
@@ -60,4 +68,4 @@ export default {
       "process.env.DEBUG": false,
     },
   },
-};
+});

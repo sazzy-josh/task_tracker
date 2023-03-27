@@ -78,7 +78,6 @@
 </template>
 
 <script lang="ts">
-  import {formatDistanceToNow} from "date-fns";
   import TaskCard from "../components/TaskCard.vue";
   import {defineComponent} from "vue";
   import {mapState, mapActions} from "pinia";
@@ -106,13 +105,10 @@
       goToAddTask() {
         this.$router.push("addTask");
       },
-      formatTime() {
-      return formatDistanceToNow(Date.now(), { addSuffix: true });
-    },
+      
     },
     created() {
       this.getAllTask();
-      this.formatTime()
     },
   });
 </script>

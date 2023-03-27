@@ -80,8 +80,8 @@
           title: "",
           info: "",
           status: "",
-          date: "",
           bgColor: "",
+          Date: "",
         },
       };
     },
@@ -98,7 +98,7 @@
           info: this.formData.info,
           status: this.formData.status,
           bgColor: this.formData.bgColor,
-          Date: this.formData.date,
+          Date: this.formData.Date,
         } as TaskList;
         if (!form.checkValidity()) {
           this.isAddLoading = false;
@@ -122,6 +122,10 @@
           this.getAllTask();
           this.$router.push("/");
         }, 1000);
+        this.$snackbar.add({
+                type: 'success',
+                text: 'Removed task successfully'
+            })
       },
     },
     async created() {
