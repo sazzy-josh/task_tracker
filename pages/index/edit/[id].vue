@@ -122,6 +122,7 @@
           this.getAllTask();
           this.$router.push("/");
         }, 1000);
+        //@ts-expect-error
         this.$snackbar.add({
                 type: 'success',
                 text: 'Removed task successfully'

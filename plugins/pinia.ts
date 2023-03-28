@@ -1,6 +1,7 @@
 import {createPinia} from "pinia";
 
-export default ((nuxtApp) => {
+//@ts-expect-error
+export default defineNuxtConfig((nuxtApp) => {
   const pinia = createPinia();
 
   nuxtApp.vueApp.use(pinia);

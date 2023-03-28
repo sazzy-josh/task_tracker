@@ -105,7 +105,6 @@
       goToAddTask() {
         this.$router.push("addTask");
       },
-      
     },
     created() {
       this.getAllTask();
