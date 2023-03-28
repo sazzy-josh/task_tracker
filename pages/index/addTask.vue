@@ -50,6 +50,7 @@
 </template>
 
 <script lang="ts">
+  // @ts-ignore
   import {v4 as uuidv4} from "uuid";
   import {defineComponent} from "vue";
   import {mapState, mapActions} from "pinia";
@@ -110,7 +111,7 @@
           this.goHome();
           form.reset();
         }, 500);
-        // console.log(payload.Date);
+        // @ts-ignore
         this.$snackbar.add({
           type: "success",
           text: "Successfully added task",
